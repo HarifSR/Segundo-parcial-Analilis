@@ -1,0 +1,51 @@
+@startuml
+class Usuario {
+  - nombre: String
+  - direccion: String
+  - email: String
+  - rol: String
+  + iniciarSesion()
+  + modificarPerfil()
+  + cambiarClave()
+}
+
+class Paciente {
+  - nombre: String
+  - direccion: String
+  - email: String
+  + crearRegistro()
+  + modificarDatos()
+}
+
+class Cita {
+  - idPaciente: Int
+  - fecha: Date
+  - motivo: String
+  + agendar()
+  + modificar()
+  + cancelar()
+}
+
+class Terapia {
+  - fecha: Date
+  - descripcion: String
+  - idTerapeuta: Int
+  + guardarTerapia()
+  + editarTerapia()
+}
+
+class Expediente {
+  - fecha: Date
+  - terapia: String
+  - idEmpleado: Int
+  - idPaciente: Int
+  - citaAsociada: Date
+  + agregarRegistro()
+  + actualizarDatos()
+}
+
+Usuario --> Terapia
+Usuario --> Expediente
+Paciente --> Cita
+Paciente --> Expediente
+@enduml
