@@ -1,51 +1,51 @@
 @startuml
-class Usuario {
-  - nombre: String
-  - direccion: String
+class User {
+  - name: String
+  - address: String
   - email: String
-  - rol: String
-  + iniciarSesion()
-  + modificarPerfil()
-  + cambiarClave()
+  - role: String
+  + login()
+  + updateProfile()
+  + changePassword()
 }
 
-class Paciente {
-  - nombre: String
-  - direccion: String
+class Patient {
+  - name: String
+  - address: String
   - email: String
-  + crearRegistro()
-  + modificarDatos()
+  + register()
+  + updateInfo()
 }
 
-class Cita {
-  - idPaciente: Int
-  - fecha: Date
-  - motivo: String
-  + agendar()
-  + modificar()
-  + cancelar()
+class Appointment {
+  - patientId: Int
+  - date: Date
+  - reason: String
+  + schedule()
+  + reschedule()
+  + cancel()
 }
 
-class Terapia {
-  - fecha: Date
-  - descripcion: String
-  - idTerapeuta: Int
-  + guardarTerapia()
-  + editarTerapia()
+class Therapy {
+  - date: Date
+  - description: String
+  - therapistId: Int
+  + recordTherapy()
+  + updateTherapy()
 }
 
-class Expediente {
-  - fecha: Date
-  - terapia: String
-  - idEmpleado: Int
-  - idPaciente: Int
-  - citaAsociada: Date
-  + agregarRegistro()
-  + actualizarDatos()
+class MedicalRecord {
+  - date: Date
+  - therapyDetails: String
+  - employeeId: Int
+  - patientId: Int
+  - appointmentDate: Date
+  + addEntry()
+  + updateRecord()
 }
 
-Usuario --> Terapia
-Usuario --> Expediente
-Paciente --> Cita
-Paciente --> Expediente
+User --> Therapy
+User --> MedicalRecord
+Patient --> Appointment
+Patient --> MedicalRecord
 @enduml
